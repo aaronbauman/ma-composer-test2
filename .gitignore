@@ -6,9 +6,10 @@
 /drush/contrib/
 /vendor/
 /web/core/
-/web/modules/contrib/
-/web/themes/contrib/
-/web/profiles/contrib/
+/web/modules/
+/web/themes/
+/web/libraries/
+/web/profiles/
 /web/private/scripts/quicksilver
 
 # Ignore scaffold files
