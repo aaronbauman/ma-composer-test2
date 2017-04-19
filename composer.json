@@ -1,13 +1,30 @@
 {
-  "name": "messageagency/sprout",
-  "description": "Message Agency Sprout",
+  "name": "messageagency/ma-composer-test2",
+  "description": "Install drops-8 with Composer on Pantheon.",
   "type": "project",
   "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require-dev": {
+      "drupal/drupal-extension": "^3.2",
+      "behat/mink": "~1.7",
+      "behat/mink-goutte-driver": "~1.2",
+      "jcalderonzumba/gastonjs": "~1.0.2",
+      "drupal/coder": "8.*",
+      "mikey179/vfsStream": "~1.2",
+      "phpunit/phpunit": "~4.8",
+      "symfony/css-selector": "~2.8",
+      "behat/behat": "^3.0",
+      "se/selenium-server-standalone": "^2.53",
+      "composer/composer": "^1.3"
+  },
+  "require": {
+    "composer/installers": "^1.0.20",
+    "drupal-composer/drupal-scaffold": "^2.0.1",
+    "cweagans/composer-patches": "^1.0",
+    "drupal/ma_sprout": "^1.0"
+  },
   "repositories": {
-    "drupal": {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    },
     "block_access": {
         "type": "package",
         "package": {
@@ -22,23 +39,23 @@
         }
     },
     "ma_sprout": {
-      "type": "package",
-      "package": {
-          "name": "drupal/ma_sprout",
-          "type": "sprout-profile",
-          "version": "1.0",
-          "source": {
-              "url": "git@bitbucket.org:messageagency/ma_sprout.git",
-              "type": "git",
-              "reference": "master"
-          }
-      }
+        "type": "package",
+        "package": {
+            "name": "drupal/ma_sprout",
+            "type": "drupal-profile",
+            "version": "1.0",
+            "source": {
+                "url": "git@bitbucket.org:messageagency/ma_sprout.git",
+                "type": "git",
+                "reference": "master"
+            }
+        }
     },
     "ma_blocks": {
         "type": "package",
         "package": {
             "name": "drupal/ma_blocks",
-            "type": "sprout-module",
+            "type": "drupal-module",
             "version": "1.0",
             "source": {
                 "url": "git@bitbucket.org:messageagency/ma_blocks.git",
@@ -51,7 +68,7 @@
         "type": "package",
         "package": {
             "name": "drupal/ma_content",
-            "type": "sprout-module",
+            "type": "drupal-module",
             "version": "1.0",
             "source": {
                 "url": "git@bitbucket.org:messageagency/ma_content.git",
@@ -64,7 +81,7 @@
         "type": "package",
         "package": {
             "name": "drupal/ma_datetime_range_helper",
-            "type": "sprout-module",
+            "type": "drupal-module",
             "version": "1.0",
             "source": {
                 "url": "git@bitbucket.org:messageagency/ma_datetime_range_helper.git",
@@ -77,7 +94,7 @@
         "type": "package",
         "package": {
             "name": "drupal/ma_gridmenu",
-            "type": "sprout-module",
+            "type": "drupal-module",
             "version": "1.0",
             "source": {
                 "url": "git@bitbucket.org:messageagency/ma_gridmenu.git",
@@ -90,7 +107,7 @@
         "type": "package",
         "package": {
             "name": "drupal/ma_filters",
-            "type": "sprout-module",
+            "type": "drupal-module",
             "version": "1.0",
             "source": {
                 "url": "git@bitbucket.org:messageagency/ma_filters.git",
@@ -103,7 +120,7 @@
         "type": "package",
         "package": {
             "name": "drupal/ma_signpost_icons",
-            "type": "sprout-module",
+            "type": "drupal-module",
             "version": "1.0",
             "source": {
                 "url": "git@bitbucket.org:messageagency/ma_signpost_icons.git",
@@ -116,7 +133,7 @@
         "type": "package",
         "package": {
             "name": "drupal/ma_twig",
-            "type": "sprout-module",
+            "type": "drupal-module",
             "version": "1.0",
             "source": {
                 "url": "git@bitbucket.org:messageagency/ma_twig.git",
@@ -138,7 +155,7 @@
             }
         }
     },
-    "libraries/chosen": {
+    "chosen": {
         "type": "package",
         "package": {
             "name": "library/chosen",
@@ -149,120 +166,31 @@
                 "type": "zip"
             }
         }
+    },
+    "drupal": {
+        "type": "composer",
+        "url": "https://packages.drupal.org/8"
     }
-  },
-  "require": {
-    "composer/installers": "^1.0.20",
-    "rvtraveller/qs-composer-installer": "^1.1",
-    "drupal-composer/drupal-scaffold": "^2.0.1",
-    "cweagans/composer-patches": "^1.0",
-
-    "drupal/core": "^8",
-    "webflo/drupal-core-strict": "^8",
-
-    "drupal/console": "^1.0.0-rc8",
-    "drush/drush": "~8",
-    "drupal/config_installer": "^1.0",
-    "drupal/config_direct_save": "^1.0",
-    "drupal/admin_toolbar": "^1.0",
-    "drupal/better_normalizers": "^1.0",
-    "drupal/block_visibility_groups": "^1.0",
-    "drupal/blockgroup": "^1.0",
-    "drupal/chosen": "^2.0",
-    "drupal/coffee": "^1.0",
-    "drupal/composer_manager": "^1.0",
-    "drupal/crop": "^1.0",
-    "drupal/ctools": "^3.0",
-    "drupal/default_content": "^1.0",
-    "drupal/devel": "^1.0",
-    "drupal/ds": "^2.0",
-    "drupal/entity": "^1.0",
-    "drupal/entity_reference_revisions": "^1.0",
-    "drupal/entityqueue": "^1.0",
-    "drupal/field_group": "^1.0",
-    "drupal/focal_point": "^1.0",
-    "drupal/inline_entity_form": "^1.0",
-    "drupal/layout_plugin": "^1.0",
-    "drupal/link_attributes": "^1.0",
-    "drupal/linkit": "^4.0",
-    "drupal/mailsystem": "^4.0",
-    "drupal/masquerade": "^2.0",
-    "drupal/menu_block": "^1.0",
-    "drupal/menu_link_attributes": "^1.0",
-    "drupal/menu_trail_by_path": "^1.0",
-    "drupal/paragraphs": "^1.0",
-    "drupal/pathauto": "^1.0",
-    "drupal/responsive_tables_filter": "^1.0",
-    "drupal/role_delegation": "^1.0",
-    "drupal/search_kint": "^1.0",
-    "drupal/sendgrid_integration": "^1.0",
-    "drupal/smart_trim": "^1.0",
-    "drupal/styleguide": "^1.0",
-    "drupal/super_login": "^1.0",
-    "drupal/token": "^1.0",
-    "drupal/workbench": "^1.0",
-    "drupal/ma_blocks": "^1.0",
-    "drupal/ma_content": "^1.0",
-    "drupal/ma_datetime_range_helper": "^1.0",
-    "drupal/ma_gridmenu": "^1.0",
-    "drupal/ma_filters": "^1.0",
-    "drupal/ma_signpost_icons": "^1.0",
-    "drupal/ma_twig": "^1.0",
-    "drupal/ma_parent": "^1.0",
-    "library/chosen": "1.0"
-  },
-  "require-dev": {
-    "mikey179/vfsstream": "^1.2",
-    "behat/behat": "3.*",
-    "behat/mink": "^1.7",
-    "behat/mink-extension": "^2.2",
-    "behat/mink-goutte-driver": "^1.2",
-    "jcalderonzumba/gastonjs": "^1.0.2",
-    "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
-    "drupal/drupal-extension": "^3.1",
-    "drush-ops/behat-drush-endpoint": "^0.0.4",
-    "pantheon-systems/quicksilver-pushback": "~1",
-    "phpunit/phpunit": "^4.8",
-    "symfony/css-selector": "^2.8"
   },
   "conflict": {
       "drupal/drupal": "*"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "autoload": {
-    "classmap": [
-      "scripts/composer/ScriptHandler.php"
-    ]
-  },
-  "scripts": {
-    "build-assets": [
-      "@prepare-for-pantheon",
-      "composer install --optimize-autoloader"
-    ],
-    "drupal-unit-tests": "cd web/core && ../../vendor/bin/phpunit --testsuite=unit --exclude-group Composer,DependencyInjection,PageCache",
-    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
-    "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
-    "post-install-cmd": [
-      "@drupal-scaffold",
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-    ],
-    "post-update-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-    ],
-    "post-create-project-cmd": [
-      "@drupal-scaffold",
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-    ]
-  },
   "extra": {
     "installer-paths": {
+      "web/profiles/ma_sprout/modules/sprout/{$name}": [
+        "drupal/ma_blocks",
+        "drupal/ma_content",
+        "drupal/ma_datetime_range_helper",
+        "drupal/ma_gridmenu",
+        "drupal/ma_filters",
+        "drupal/ma_signpost_icons",
+        "drupal/ma_twig",
+        "drupal/ma_parent"
+      ],
       "web/core": ["type:drupal-core"],
-      "web/profiles/{$name}": ["type:sprout-profile"],
-      "web/profiles/ma_sprout/modules/sprout/{$name}": ["type:sprout-module"],
       "web/profiles/ma_sprout/modules/contrib/{$name}": ["type:drupal-module"],
-      "web/profiles/ma_sprout/themes/contrib/{$name}": ["type:drupal-theme"],
-      "web/profiles/ma_sprout/libraries/{$name}": ["type:drupal-library"],
+      "web/profiles/{$name}": ["type:drupal-profile"],
+      "web/profiles/ma_sprout/themes/{$name}": ["type:drupal-theme"],
       "drush/contrib/{$name}": ["type:drupal-drush"]
     },
     "drupal-scaffold": {
@@ -279,6 +207,7 @@
         ".htaccess",
         "web.config"
       ]
-    }
+    },
+    "enable-patching": true
   }
 }
