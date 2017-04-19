@@ -1,5 +1,5 @@
 {
-  "name": "messageagency/ma-composer-test2",
+  "name": "aaronbauman/ma-composer-test2",
   "description": "Install drops-8 with Composer on Pantheon.",
   "type": "project",
   "license": "MIT",
